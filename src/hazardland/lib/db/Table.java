@@ -776,16 +776,16 @@ public class Table<Target extends Entity>// extends SQLiteOpenHelper
     public ArrayList<Target> of (Entity object, Query query)
     {
         debug ("******* preparing "+ name+ "s OF for " + object.getClass().getName());
-        java.lang.reflect.Field property;
+        //java.lang.reflect.Field property;
         for (Field field: fields.values())
         {
             if (field.foreign==object.getClass())
             {
-                property = null;
+/*                property = null;
                 
                 try
                 {
-                    property = object.getClass().getField(name);
+                    property = object.getClass().getField(name+"s");
                 } 
                 catch (SecurityException e)
                 {
@@ -818,7 +818,13 @@ public class Table<Target extends Entity>// extends SQLiteOpenHelper
                 {
                     debug ("for "+object.getClass().getName()+" we did not find "+name+" field");
                     return load(query);
+                }*/
+                if (query==null)
+                {
+                    query = new Query(this);
                 }
+                query.where.string = "\""+name+"\".\""+field.name+"\"="+object;            	
+                return load(query);
             }
         }
         return null;
