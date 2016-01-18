@@ -1,4 +1,4 @@
-lib.db
+db.android
 ================
 
 Android SQLite codefirst style ORM with Multi Threading Support
