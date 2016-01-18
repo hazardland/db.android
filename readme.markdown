@@ -1,7 +1,7 @@
 lib.db
 ================
 
-Android SQLite Codefirst Entity Framework with Multi Thread Support
+Android SQLite codefirst style ORM with Multi Threading Support
 
 About
 -----------
